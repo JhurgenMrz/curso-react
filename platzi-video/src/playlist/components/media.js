@@ -1,26 +1,48 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import'./media.css'
 
-class Media extends Component{
-    render(){
-
+class Media extends PureComponent{
+    state={
+        author:'Jhurgen Maraza'
+    }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         author: props.author
+    //     }
         
+    // }
+    handleClick = (event) =>{
+        console.log(this.props.author)
+        this.setState({
+            author : 'Leonidas Esteban'
+        })
+    }
+
+    render(){
         return (
-            <div className="Media">
+            <div className="Media" onClick={this.handleClick}>
                 <div className='Media-cover'>
-                    <img src="./images/covers/bitcoin.jpg" 
+                    <img src={this.props.cover} 
                     alt=""
                     width={260}
                     height={160}
                     className="Media-image"
                     />
-                    <h3 className="Media-title">¿Por qué aprender React?</h3>
-                    <p className="Media-author">Jhurgen Maraza</p>
+                    <h3 className="Media-title">{this.props.title}</h3>
+                    <p className="Media-author">{this.props.author}</p>
                 </div>
-
             </div>
         )
     }
+}
+
+Media.propTypes = {
+    cover: PropTypes.string,
+    title:PropTypes.string.isRequired,
+    author:PropTypes.string,
+
 }
 
 export default Media;
