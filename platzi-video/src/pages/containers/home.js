@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
-import HomeLeyout from '../components/home-leyout'
+import HomeLayout from '../components/home-layout'
 import Categories from '../../categories/components/categories'
+import Related from '../components/related'
+import ModalContainer from '../../widgets/containers/modal'
 
 class Home extends Component {
     render(){
         return(
-           <HomeLeyout>
+           <HomeLayout>
+               <Related></Related>
                <Categories categories={this.props.data.categories}/>
-           </HomeLeyout>
+                <ModalContainer>
+                <h1>Esto es un Portal</h1>    
+                </ModalContainer>>
+           </HomeLayout>
 
         )
     }

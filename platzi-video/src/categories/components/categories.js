@@ -1,10 +1,10 @@
 import React from 'react';
 import Category from '../components/category'
-import '../../playlist/components/playlist.css'
+import './categories.css';
 
 function Categories (props){
     return(
-        <div>
+        <div className="Categories">
             {
             props.categories.map((item)=>{
                 return <Category key={item.id} {...item} />

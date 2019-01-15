@@ -1,5 +1,5 @@
 .Playlist{
-    /* overflow-x: auto; */
+    overflow-x: auto;
     /*witdh: 500px*/
     white-space: nowrap;
     /*
@@ -8,25 +8,6 @@
     height: 500px;
     background: red;
     */
-    /* overflow-y: hidden */
+    overflow-y: hidden;
     padding-bottom: 80px;
-    font-family: Arial, Helvetica, sans-serif
-
-}
-.Playlist-description{
-    font-family: Arial, Helvetica, sans-serif
-}
-.Playlist-title{
-    font-family: Arial, Helvetica, sans-serif
-
-}
-.Category{
-    display: grid;
-    grid-auto-flow: row
-}
-.Category.Playlist{
-    display: grid;
-    grid-auto-flow: column;
-    padding-bottom: 80px;
-
 }
