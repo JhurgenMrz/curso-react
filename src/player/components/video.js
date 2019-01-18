@@ -6,6 +6,7 @@ export default class Video extends Component {
         return (
             <div className="Video">
                 <video 
+                constrols
                 autoPlay={this.props.autoplay}
                 src={this.props.src}
                 />

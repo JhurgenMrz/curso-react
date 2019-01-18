@@ -8,6 +8,7 @@ import HandleError from '../../error/container/handleError'
 import VideoPlayer from '../../player/container/video-player'
 
 
+
 class Home extends Component {
     state={
         modalVisible: false
