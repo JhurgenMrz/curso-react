@@ -9,6 +9,7 @@ import formattedTime from '../../helpers/FormattedTime'
 import ProgressBar from '../components/progress-bar'
 import Spinner from '../components/spinner'
 import Volume from '../components/volume'
+import FullScreen from '../components/full-screen'
 
 export default class VideoPlayer extends Component {
     state = {
@@ -84,14 +85,26 @@ export default class VideoPlayer extends Component {
         }
     }
 
-    
+    handleFullScreenClick = event =>{
+        if (!document.webkitIsFullScreen){
+            this.player.webkitRequestFullscreen( )
+        }else{
+            document.webkitExitFullscreen()
+        }
+    }
+
+    setRef = element =>{
+        this.player = element
+    }
 
 
     render(){
         return (
-            <VideoPlayerLayout>
+            <VideoPlayerLayout
+            setRef={this.setRef}
+            >
                 <Title
-                title="Esto es un Video Chido"
+                title={this.props.title}
                 />
             <Controls>
                 <PlayPause 
@@ -108,10 +121,13 @@ export default class VideoPlayer extends Component {
                 handleProgressChange={this.handleProgressChange}
 
                 />
-            <Volume
-            handleVolumeChange={this.handleVolumeChange}
-            handleVolumeToggle={this.handleVolumeToggle}
-            volume={this.state.volume}
+                <Volume
+                handleVolumeChange={this.handleVolumeChange}
+                handleVolumeToggle={this.handleVolumeToggle}
+                volume={this.state.volume}
+                />
+            <FullScreen
+            handleFullScreenClick={this.handleFullScreenClick}
             />
             </Controls>
                 <Spinner
@@ -124,7 +140,7 @@ export default class VideoPlayer extends Component {
                 handleTimeUpdate={this.handleTimeUpdate}
                 handleSeeking={this.handleSeeking}
                 handleSeeked={this.handleSeeked}
-                src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+                src={this.props.src}
                 />
             </VideoPlayerLayout>
         )
